@@ -188,6 +188,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
             <img src="./static/images/v1.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
@@ -195,7 +196,7 @@
               showcasing the inclusion of six ground RGB cameras, six ground infrared cameras,
               one UAV RGB camera and one UAV thermal camera</p>
           </div>
-      
+      </div>
     </div>
   </div>
 </section>
@@ -206,10 +207,10 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <div class="columns is-centered">
+    
 
       <!-- Dataset. -->
-      <div class="column">
+      
         <div class="content">
           <h2 class="title is-3">MP-ReID Dataset</h2>
           <p>
@@ -217,7 +218,7 @@
             consists 1,930 identities and 136,156 images sampled from over 1.2M frames.
             The images are collected from ground RGB and infrared cameras and UAV RGB
             and thermal cameras.
-            <img src="./static/images/v3.pdf"
+            <img src="./static/images/v3.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
             <p>MP-ReID dataset comprises three distinct modalities and three different scenes, with
@@ -229,34 +230,61 @@
               examples serve to demonstrate the complex nature of the gaps and obstacles within our 
               dataset, emphasizing the diversity and real-world applicability of the MP-ReID benchmark.
             </p>
+          <p>
+            Leveraging data collection from both ground-based cameras and UAV, our dataset contains
+            video recordings capturing RGB, infrared, and thermal modalities across indoor, outdoor, and aerial domains.
+            Noteworthy is the scale of our MP-ReID dataset, featuring 1,930 distinct identities and
+            136,156 human bounding boxes acquired from 14 cameras. This scale is comparable to that
+            of multi-view traditional datasets, thus establishing our dataset as a substantial
+            resource for ReID research, featuring numerous cameras and human annotations across
+            various platforms and modalities. To ensure robust privacy protection, we applied mosaic
+            techniques to obscure pedestrians’ facial features in all video recordings and 
+            permanently deleted the original raw footage to prevent any potential data leakage.
+          </p>
           </p>
           
         </div>
-      </div>
+      
       <!--/ Visual Effects. -->
 
       <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
+      
+        <h2 class="title is-3">Method</h2>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              To enhance cross-modality and cross-platform generalization in ReID, we introduce Uni-
+              Prompt ReID, a unified prompt-based learning framework that leverages vision-language 
+              alignment in VLMs like CLIP through multi-part text prompt fine-tuning.
             </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
+            <img src="./static/images/method.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>
+              Building on DAPrompt \cite{DAPrompt}, we incorporate modality and platform information
+              into the text prompt. Additionally, inspired by CoCoOp , we enhance learnable prompts 
+              by designing a weight-tied meta-network to extract text prompt biases from pedestrian image 
+              visual features.
+            </p>
+            <p>
+              Our framework employs a learnable text prompt structure, as illustrated in the figure,
+              which integrates multi-modality and multi-platform information into prompt learning.
+              The text prompt comprises three distinct components: (1) the Specific Re-ID Prompt,
+              which encodes individual-specific information; (2) the Modality-aware Prompt, 
+              which captures modality-specific details; and (3) the Platform-aware Prompt, 
+              which incorporates platform-specific context. This design enhances the model’s 
+              representational capacity by embedding rich, task-relevant information into the 
+              prompt structure.
+            </p>
           </div>
 
         </div>
-      </div>
-    </div>
+      
+    
     <!--/ Matting. -->
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
+<!--     Concurrent Work. -->
+<!--     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
 
@@ -279,7 +307,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Concurrent Work. -->
 
   </div>
@@ -288,47 +316,33 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+      <h2 class="title">Citation</h2>
+      <div style="position: relative;">
+          <pre><code id="bibtex-code">@article{wu2024afforddp,
+            title={AffordDP: Generalizable Diffusion Policy with Transferable Affordance},
+            author={Wu, Shijie and Zhu, Yihang and Huang, Yunao and Zhu, Kaizhen and Gu, Jiayuan and Yu, Jingyi and Shi, Ye and Wang, Jingya},
+            journal={arXiv preprint arXiv:2412.03142},
+            year={2024}
+          }
+<!--             整段待修改 -->
+        </code></pre>
+          <button onclick="copyToClipboard()" style="position: absolute; top: 5px; right: 5px; background: none; border: none; cursor: pointer;">
+              <!-- 粘贴图标，可以使用Font Awesome 图标库 -->
+              <i class="fa fa-paste" aria-hidden="true"></i>
+          </button>
+      </div>
   </div>
 </section>
 
 
 <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
-      <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
           </p>
         </div>
-      </div>
     </div>
-  </div>
 </footer>
 
 </body>
