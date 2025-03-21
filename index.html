@@ -278,7 +278,42 @@
           </div>
 
         </div>
-      
+
+    <h2 class="title is-3">Experiments</h2>
+    <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Following the existing works, we employed both Cumulated Matching Characteristic (CMC)
+              at Rank-1 and Rank-5. To account for the retrieval of multiple instances and difficult 
+              samples, we use mean average precision (mAP) as the accuracy metrics.
+            </p>
+            <img src="./static/images/exp.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>
+              To validate the various characteristics of our proposed MP-ReID, we designed a total
+              12 different experimental settings, considering all four image sources: ground RGB,
+              ground infrared, UAV RGB and UAV thermal. It is important to note that, in order to
+              address the complexity and variability of city-scale scenarios, it is essential to
+              fully leverage the interaction between multiple platforms and the complementarity of
+              different modalities.
+            </p>
+            <p>
+              To this end, we propose four novel cross-modality and cross-platform ReID settings.
+              The results from each experiment were recorded and subsequently categorized into 
+              cross-modality,cross-platform, and cross-modality & platform. The mean performance of each method
+              in each experimental category is shown in the experiment table.The findings in the 
+              table reveal that most of the cross-modality methods perform well in cross-modality
+              tasks but underperform in the cross modality & platform settings due to the lack of
+              consideration for platform diversity. Our Uni-Prompt ReID method outperforms other
+              state-of-the-art methods, with a 7.87% boost in average Rank-1 accuracy and a 15.42%
+              higher mAP by on our MP-ReID dataset, demonstrating that Uni-Prompt ReID method exhibits
+              strong robustness and high efficiency.
+            </p>
+          </div>
+
+        </div>
+    
     
     <!--/ Matting. -->
 
